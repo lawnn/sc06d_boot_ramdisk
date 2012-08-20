@@ -194,9 +194,6 @@
 # for PL2303 driver
 /dev/ttyUSB0           0666   system   	 system
 
-# these should not be world writable
-/dev/block/mmcblk1	0660	root		system
-
 # for felica
 /dev/felica		0666	root		root
 /dev/felica_pon		0666	root		root
