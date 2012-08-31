@@ -943,11 +943,11 @@ SectionVerb
 	Name "HiFi Rec"
 
 	EnableSequence
-		'MultiMedia1 Mixer PRI_TX':1:1
+		'MultiMedia1 Mixer SLIM_0_TX':1:1
 	EndSequence
 
 	DisableSequence
-		'MultiMedia1 Mixer PRI_TX':1:0
+		'MultiMedia1 Mixer SLIM_0_TX':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -1026,11 +1026,11 @@ SectionVerb
 	Name "HiFi RecSSR QMIC"
 
 	EnableSequence
-		'MultiMedia1 Mixer PRI_TX':1:1
+		'MultiMedia1 Mixer SLIM_0_TX':1:1
 	EndSequence
 
 	DisableSequence
-		'MultiMedia1 Mixer PRI_TX':1:0
+		'MultiMedia1 Mixer SLIM_0_TX':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -1207,12 +1207,12 @@ SectionVerb
 
         EnableSequence
                 'SLIM_0_RX_Voice Mixer SGLTE':1:1
-                'SGLTE_Tx Mixer PRI_TX_SGLTE':1:1
+                'SGLTE_Tx Mixer SLIM_0_TX_SGLTE':1:1
         EndSequence
 
         DisableSequence
                 'SLIM_0_RX_Voice Mixer SGLTE':1:0
-                'SGLTE_Tx Mixer PRI_TX_SGLTE':1:0
+                'SGLTE_Tx Mixer SLIM_0_TX_SGLTE':1:0
         EndSequence
 
         # ALSA PCMs
@@ -1229,7 +1229,7 @@ SectionVerb
 
         DisableSequence
                 'HDMI_RX_Voice Mixer SGLTE':1:0
-                'SGLTE_Tx Mixer PRI_TX_SGLTE':1:0
+                'SGLTE_Tx Mixer SLIM_0_TX_SGLTE':1:0
         EndSequence
 
         # ALSA PCMs
@@ -1243,7 +1243,7 @@ SectionVerb
 
         EnableSequence
                 'HDMI_RX_Voice Mixer SGLTE':1:1
-                'SGLTE_Tx Mixer PRI_TX_SGLTE':1:1
+                'SGLTE_Tx Mixer SLIM_0_TX_SGLTE':1:1
         EndSequence
 
         DisableSequence
@@ -1368,12 +1368,12 @@ SectionVerb
 
 	EnableSequence
 		'SLIM_0_RX_Voice Mixer Voip':1:1
-		'Voip_Tx Mixer PRI_TX_Voip':1:1
+		'Voip_Tx Mixer SLIM_0_TX_Voip':1:1
 	EndSequence
 
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer Voip':1:0
-		'Voip_Tx Mixer PRI_TX_Voip':1:0
+		'Voip_Tx Mixer SLIM_0_TX_Voip':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -1387,7 +1387,7 @@ SectionVerb
 
 	EnableSequence
 		'HDMI_RX_Voice Mixer Voip':1:1
-		'Voip_Tx Mixer PRI_TX_Voip':1:1
+		'Voip_Tx Mixer SLIM_0_TX_Voip':1:1
 	EndSequence
 
 	DisableSequence
@@ -1479,7 +1479,7 @@ SectionVerb
 
 	DisableSequence
 		'HDMI_RX_Voice Mixer Voip':1:0
-		'Voip_Tx Mixer PRI_TX_Voip':1:0
+		'Voip_Tx Mixer SLIM_0_TX_Voip':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -1496,7 +1496,7 @@ SectionVerb
 
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer Voip':1:0
-		'Voip_Tx Mixer PRI_TX_Voip':1:0
+		'Voip_Tx Mixer SLIM_0_TX_Voip':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -2137,12 +2137,12 @@ SectionVerb
 
 	EnableSequence
 		'SLIM_0_RX_Voice Mixer VoLTE':1:1
-		'VoLTE_Tx Mixer PRI_TX_VoLTE':1:1
+		'VoLTE_Tx Mixer SLIM_0_TX_VoLTE':1:1
 	EndSequence
 
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer VoLTE':1:0
-		'VoLTE_Tx Mixer PRI_TX_VoLTE':1:0
+		'VoLTE_Tx Mixer SLIM_0_TX_VoLTE':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -2159,7 +2159,7 @@ SectionVerb
 
 	DisableSequence
 		'HDMI_RX_Voice Mixer VoLTE':1:0
-		'VoLTE_Tx Mixer PRI_TX_VoLTE':1:0
+		'VoLTE_Tx Mixer SLIM_0_TX_VoLTE':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -2173,7 +2173,7 @@ SectionVerb
 
 	EnableSequence
 		'HDMI_RX_Voice Mixer VoLTE':1:1
-		'VoLTE_Tx Mixer PRI_TX_VoLTE':1:1
+		'VoLTE_Tx Mixer SLIM_0_TX_VoLTE':1:1
 	EndSequence
 
 	DisableSequence
@@ -2710,7 +2710,7 @@ SectionDevice
 	Comment "Handset Tx device"
 
     EnableSequence
-        'PRI_TX Channels':0:One
+        'SLIM_0_TX Channels':0:One
         'SLIM TX7 MUX':0:DEC4
         'DEC4 MUX':0:ADC3
         'ADC3 Volume':1:100%
@@ -2736,7 +2736,7 @@ SectionDevice
 	Comment "TTY Handset Analog Tx device"
 
 	EnableSequence
-		'PRI_TX Channels':0:One
+		'SLIM_0_TX Channels':0:One
 		'SLIM TX7 MUX':0:DEC7
 		'DEC7 MUX':0:ADC1
 		'ADC1 Volume':1:100
@@ -2786,7 +2786,7 @@ SectionDevice
 	Comment "TTY VCO Handset Tx device"
 
 	EnableSequence
-		'PRI_TX Channels':0:One
+		'SLIM_0_TX Channels':0:One
 		'SLIM TX7 MUX':0:DEC7
 		'DEC7 MUX':0:DMIC1
 		'MICBIAS1 CAPLESS Switch':1:1
@@ -2808,7 +2808,7 @@ SectionDevice
 	Comment "HDMI Tx device"
 
 	EnableSequence
-		'PRI_TX Channels':0:One
+		'SLIM_0_TX Channels':0:One
 		'SLIM TX7 MUX':0:DEC7
 		'DEC7 MUX':0:DMIC1
 		'MICBIAS1 CAPLESS Switch':1:1
@@ -2831,7 +2831,7 @@ SectionDevice
         Comment "Quad mic device"
 
         EnableSequence
-                'PRI_TX Channels':0:Four
+                'SLIM_0_TX Channels':0:Four
                 'SLIM TX7 MUX':0:DEC7
                 'DEC7 MUX':0:DMIC1
                 'SLIM TX8 MUX':0:DEC8
@@ -2872,7 +2872,7 @@ SectionDevice
 		'SLIM TX8 MUX':0:DEC8
 		'DEC8 MUX':0:DMIC2
 		'MICBIAS1 CAPLESS Switch':1:1
-		'PRI_TX Channels':0:Two
+		'SLIM_0_TX Channels':0:Two
 	EndSequence
 
 	DisableSequence
@@ -2893,7 +2893,7 @@ SectionDevice
 	Comment "Dual MIC Endfire Tx device"
 
     EnableSequence
-        'PRI_TX Channels':0:Two
+        'SLIM_0_TX Channels':0:Two
         'SLIM TX8 MUX':0:DEC3
         'DEC3 MUX':0:ADC4
         'ADC4 Volume':1:100%
@@ -2934,7 +2934,7 @@ SectionDevice
 		'SLIM TX8 MUX':0:DEC8
 		'DEC8 MUX':0:DMIC2
 		'MICBIAS1 CAPLESS Switch':1:1
-		'PRI_TX Channels':0:Two
+		'SLIM_0_TX Channels':0:Two
 	EndSequence
 
 	DisableSequence
@@ -2955,7 +2955,7 @@ SectionDevice
 	Comment "Dual MIC Endfire Tx device"
 
     EnableSequence
-        'PRI_TX Channels':0:Two
+        'SLIM_0_TX Channels':0:Two
         'SLIM TX8 MUX':0:DEC2
         'DEC2 MUX':0:ADC5
         'ADC5 Volume':1:100%
@@ -3022,7 +3022,7 @@ SectionDevice
 
 	EnableSequence
 		'TTY Mode':0:HCO
-		'PRI_TX Channels':0:One
+		'SLIM_0_TX Channels':0:One
 		'SLIM TX7 MUX':0:DEC8
 		'DEC8 MUX':0:ADC2
 		'ADC2 Volume':1:100
@@ -3069,7 +3069,7 @@ SectionDevice
 	Comment "TTY Full Tx device"
 
 	EnableSequence
-		'PRI_TX Channels':0:One
+		'SLIM_0_TX Channels':0:One
 		'SLIM TX7 MUX':0:DEC8
 		'DEC8 MUX':0:ADC2
 		'ADC2 Volume':1:100
@@ -3475,7 +3475,7 @@ SectionDevice
 	Comment "Quad mic device for Surround Sound Recording"
 
 	EnableSequence
-		'PRI_TX Channels':0:Four
+		'SLIM_0_TX Channels':0:Four
 		'SLIM TX7 MUX':0:DEC9
 		'DEC9 MUX':0:DMIC4
 		'SLIM TX8 MUX':0:DEC10
@@ -4224,11 +4224,11 @@ SectionModifier
 	Name "Capture Music"
 
 	EnableSequence
-		'MultiMedia1 Mixer PRI_TX':1:1
+		'MultiMedia1 Mixer SLIM_0_TX':1:1
 	EndSequence
 
 	DisableSequence
-		'MultiMedia1 Mixer PRI_TX':1:0
+		'MultiMedia1 Mixer SLIM_0_TX':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -4296,12 +4296,12 @@ SectionModifier
 
         EnableSequence
                 'SLIM_0_RX_Voice Mixer SGLTE':1:1
-                'SGLTE_Tx Mixer PRI_TX_SGLTE':1:1
+                'SGLTE_Tx Mixer SLIM_0_TX_SGLTE':1:1
         EndSequence
 
         DisableSequence
                 'SLIM_0_RX_Voice Mixer SGLTE':1:0
-                'SGLTE_Tx Mixer PRI_TX_SGLTE':1:0
+                'SGLTE_Tx Mixer SLIM_0_TX_SGLTE':1:0
         EndSequence
 
         # ALSA PCMs
@@ -4419,12 +4419,12 @@ SectionModifier
 
 	EnableSequence
 		'SLIM_0_RX_Voice Mixer Voip':1:1
-		'Voip_Tx Mixer PRI_TX_Voip':1:1
+		'Voip_Tx Mixer SLIM_0_TX_Voip':1:1
 	EndSequence
 
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer Voip':1:0
-		'Voip_Tx Mixer PRI_TX_Voip':1:0
+		'Voip_Tx Mixer SLIM_0_TX_Voip':1:0
 	EndSequence
 
        # ALSA PCMs
@@ -4513,7 +4513,7 @@ SectionModifier
 
 	DisableSequence
 		'HDMI_RX_Voice Mixer Voip':1:0
-		'Voip_Tx Mixer PRI_TX_Voip':1:0
+		'Voip_Tx Mixer SLIM_0_TX_Voip':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -4527,7 +4527,7 @@ SectionModifier
 
 	EnableSequence
 		'HDMI_RX_Voice Mixer Voip':1:1
-		'Voip_Tx Mixer PRI_TX_Voip':1:1
+		'Voip_Tx Mixer SLIM_0_TX_Voip':1:1
 	EndSequence
 
 	DisableSequence
@@ -5242,11 +5242,11 @@ SectionModifier
 	Name "Capture MusicSSR QMIC"
 
 	EnableSequence
-		'MultiMedia1 Mixer PRI_TX':1:1
+		'MultiMedia1 Mixer SLIM_0_TX':1:1
 	EndSequence
 
 	DisableSequence
-		'MultiMedia1 Mixer PRI_TX':1:0
+		'MultiMedia1 Mixer SLIM_0_TX':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -5332,12 +5332,12 @@ SectionModifier
 
 	EnableSequence
 		'SLIM_0_RX_Voice Mixer VoLTE':1:1
-		'VoLTE_Tx Mixer PRI_TX_VoLTE':1:1
+		'VoLTE_Tx Mixer SLIM_0_TX_VoLTE':1:1
 	EndSequence
 
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer VoLTE':1:0
-		'VoLTE_Tx Mixer PRI_TX_VoLTE':1:0
+		'VoLTE_Tx Mixer SLIM_0_TX_VoLTE':1:0
 	EndSequence
 
 	# ALSA PCMs
