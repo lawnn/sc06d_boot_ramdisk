@@ -88,13 +88,13 @@ service mfescand /system/bin/mfescand
 
 # for felica
 service mfsc /system/bin/mfsc
-    class main
+    class core
     user root
     group system
     oneshot
     
 service mfdp /system/bin/mfdp
-    class main
+    class core
     user root
     group system
     oneshot
