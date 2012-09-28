@@ -283,6 +283,11 @@ on boot
     chown system system /sys/devices/system/cpu/cpufreq/interactive/input_boost
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/input_boost
 
+    chown system system /sys/devices/system/cpu/cpufreq/sakuractive/boost_timeout
+    chmod 0660 /sys/devices/system/cpu/cpufreq/sakuractive/boost_timeout
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq
+    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq
+
     # Assume SMP uses shared cpufreq policy for all CPUs
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
     chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
