@@ -39,6 +39,9 @@ on emmc-fs
     wait /dev/block/mmcblk0p15
     exec /system/bin/e2fsck -p /dev/block/mmcblk0p15
     mount ext4 /dev/block/mmcblk0p15 /data nosuid nodev noatime barrier=1 discard,noauto_da_alloc,journal_async_commit
+
+#@ext4sd_mount
+
     mount ext4 /dev/block/mmcblk0p16 /persist nosuid nodev barrier=1
     wait /dev/block/mmcblk0p17 
     exec /system/bin/e2fsck -p /dev/block/mmcblk0p17

@@ -634,8 +634,11 @@ service sdcard /system/bin/sdcard /data/media 1023 1023
     class late_start
     disabled
 
+#@ext4sd_service
+
 on property:persist.fuse_sdcard=true
     start sdcard
+    start ext4sd
 
 service hcidump /system/bin/sh /system/etc/hcidump.sh
     user bluetooth
