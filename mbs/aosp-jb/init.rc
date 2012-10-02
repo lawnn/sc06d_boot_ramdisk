@@ -469,7 +469,7 @@ service media /system/bin/mediaserver
 service bootanim /sbin/bootanimation
     class main
     user root
-    group root
+    group root media
     disabled
     oneshot
 
