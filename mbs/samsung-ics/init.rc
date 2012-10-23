@@ -116,6 +116,12 @@ loglevel 3
 # For Google approval
     setprop ro.kernel.qemu 0
 
+# bootanimation wait one loop
+    setprop sys.bootanim_wait 1
+
+# void swichable pair
+    setprop ro.vold.switchablepair "/storage/sdcard0,/storage/sdcard1"
+
 on fs
 # mount mtd partitions
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
@@ -776,7 +782,7 @@ service powersnd /system/bin/samsungpowersoundplay
 service samsungani /sbin/bootanimation.sh
     class main
     user root
-    group root graphics system
+    group root graphics media system
     disabled
     oneshot
 
