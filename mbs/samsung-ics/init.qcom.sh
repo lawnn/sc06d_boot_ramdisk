@@ -171,7 +171,7 @@ case "$target" in
              # the UI keyboard works fine.
              ln -s  /system/usr/keychars/surf_keypad_qwerty.kcm.bin /system/usr/keychars/surf_keypad.kcm.bin;;
             "Fluid")
-             setprop ro.sf.lcd_density 240
+             #setprop ro.sf.lcd_density 240
              setprop qcom.bt.dev_power_class 2
              start profiler_daemon;;
             *)
@@ -257,7 +257,7 @@ case "$target" in
         case "$platformvalue" in
             "Fluid")
                 start_sensors
-                setprop ro.sf.lcd_density 240
+                #setprop ro.sf.lcd_density 240
                 start profiler_daemon;;
             "Dragon")
                 setprop ro.sound.alsa "WM8903";;
@@ -278,9 +278,9 @@ case "$target" in
         # lcd density is write-once. Hence the separate switch case
         case "$platformvalue" in
              "Liquid")
-                 setprop ro.sf.lcd_density 160;;
+                 #setprop ro.sf.lcd_density 160;;
              *)
-                 setprop ro.sf.lcd_density 240;;
+                 #setprop ro.sf.lcd_density 240;;
         esac
 
         # Dynamic Memory Managment (DMM) provides a sys file system to the userspace
