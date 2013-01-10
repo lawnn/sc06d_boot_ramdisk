@@ -49,9 +49,6 @@ on fs
     symlink /lib/modules/dma_test.ko /system/lib/modules/dma_test.ko
     symlink /lib/modules/ansi_cprng.ko /system/lib/modules/ansi_cprng.ko
 
-    mount tmpfs tmpfs /system/etc/snd_soc_msm
-    symlink /res/etc/snd_soc_msm/snd_soc_msm_2x /system/etc/snd_soc_msm/snd_soc_msm_2x
-
     # Keeping following partitions outside fstab file. As user may not have
     # these partition flashed on the device. Failure to mount any partition in fstab file
     # results in failure to launch late-start class.
@@ -127,6 +124,11 @@ on post-fs-data
 
     # wifi
     mkdir /efs/wifi 0775 system system
+
+# wifi for SC06D
+#    write /data/.cid.info murata
+#    chown root root /data/.cid.info
+#    chmod 0666 /data/.cid.info
 
     # Permission for fast dormacy for RIL
     chown system radio /sys/devices/virtual/sec/bamdmux/waketime
