@@ -49,6 +49,9 @@ on fs
     symlink /lib/modules/dma_test.ko /system/lib/modules/dma_test.ko
     symlink /lib/modules/ansi_cprng.ko /system/lib/modules/ansi_cprng.ko
 
+    mount tmpfs tmpfs /system/etc/snd_soc_msm
+    symlink /res/etc/snd_soc_msm/snd_soc_msm_2x /system/etc/snd_soc_msm/snd_soc_msm_2x
+
     # Keeping following partitions outside fstab file. As user may not have
     # these partition flashed on the device. Failure to mount any partition in fstab file
     # results in failure to launch late-start class.
