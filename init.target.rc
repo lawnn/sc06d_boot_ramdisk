@@ -35,15 +35,18 @@ on fs
     mount_all fstab.qcom
 
     mount tmpfs tmpfs /system/lib/modules
+    symlink /lib/modules/test-iosched.ko /system/lib/modules/test-iosched.ko
     symlink /lib/modules/dhd.ko /system/lib/modules/dhd.ko
     symlink /lib/modules/btlock.ko /system/lib/modules/btlock.ko
     symlink /lib/modules/scsi_wait_scan.ko /system/lib/modules/scsi_wait_scan.ko
+    symlink /lib/modules/adsprpc.ko /system/lib/modules/adsprpc.ko
     symlink /lib/modules/evbug.ko /system/lib/modules/evbug.ko
     symlink /lib/modules/spidev.ko /system/lib/modules/spidev.ko
     symlink /lib/modules/gspca_main.ko /system/lib/modules/gspca_main.ko
     symlink /lib/modules/qce40.ko /system/lib/modules/qce40.ko
     symlink /lib/modules/qcrypto.ko /system/lib/modules/qcrypto.ko
     symlink /lib/modules/qcedev.ko /system/lib/modules/qcedev.ko
+    symlink /lib/modules/hid-logitech-dj.ko /system/lib/modules/hid-logitech-dj.ko
     symlink /lib/modules/reset_modem.ko /system/lib/modules/reset_modem.ko
     symlink /lib/modules/msm-buspm-dev.ko /system/lib/modules/msm-buspm-dev.ko
     symlink /lib/modules/dma_test.ko /system/lib/modules/dma_test.ko
@@ -130,10 +133,10 @@ on post-fs-data
     # wifi
     mkdir /efs/wifi 0775 system system
 
-# wifi for SC06D
-#    write /data/.cid.info murata
-#    chown root root /data/.cid.info
-#    chmod 0666 /data/.cid.info
+# workaround wifi for SC06D
+    write /data/.cid.info murata
+    chown root root /data/.cid.info
+    chmod 0666 /data/.cid.info
 
     # Permission for fast dormacy for RIL
     chown system radio /sys/devices/virtual/sec/bamdmux/waketime
