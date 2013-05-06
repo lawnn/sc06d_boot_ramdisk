@@ -67,10 +67,6 @@ on fs
     wait /dev/block/platform/msm_sdcc.1/by-name/modem
     mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro shortname=lower dmask=177 fmask=177
 
-    exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
-
-    exec /sbin/felica_init.sh
-
 on boot
     write /sys/devices/i2c-3/3-0024/cyttsp_update_fw 1
     write /sys/devices/i2c-3/3-005b/update_fw 1   
@@ -132,11 +128,6 @@ on post-fs-data
 
     # wifi
     mkdir /efs/wifi 0775 system system
-
-# workaround wifi for SC06D
-    write /data/.cid.info murata
-    chown root root /data/.cid.info
-    chmod 0666 /data/.cid.info
 
     # Permission for fast dormacy for RIL
     chown system radio /sys/devices/virtual/sec/bamdmux/waketime
@@ -236,6 +227,12 @@ on post-fs-data
     # Vibetonz
     chmod 0660 /dev/tspdrv
     chown root shell /dev/tspdrv
+    chmod 0660 /sys/vibrator/pwm_val
+    chown system system /sys/vibrator/pwm_val
+
+    # Panel color temperature
+    chmod 0660 /sys/class/lcd/panel/panel_colors
+    chown system system /sys/class/lcd/panel/panel_colors
 
     # volume up/down key
     chown radio system /sys/class/sec/sec_key/wakeup_keys
@@ -278,10 +275,10 @@ service qrngd /system/bin/qrngd -f
     user root
     group root
 
-service qseecomd /system/bin/qseecomd
-   class late_start
-   user system
-   group system
+#service qseecomd /system/bin/qseecomd
+#   class late_start
+#   user system
+#   group system
 
 # Start kickstart if mdm is detected
 on property:ro.baseband=mdm

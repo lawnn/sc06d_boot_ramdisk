@@ -7,6 +7,7 @@
 import /init.usb.rc
 import /init.${ro.hardware}.rc
 import /init.trace.rc
+import /init.carrier.rc
 
 on early-init
     # Set init and its forked children's oom_adj.
@@ -104,6 +105,7 @@ loglevel 3
     write /proc/sys/vm/mmap_min_addr 32768
     write /proc/sys/kernel/sched_rt_runtime_us 950000
     write /proc/sys/kernel/sched_rt_period_us 1000000
+    write /proc/sys/kernel/feature_aosp 1
 
 # Create cgroup mount points for process groups
     mkdir /dev/cpuctl
@@ -133,6 +135,9 @@ loglevel 3
 # Allow everybody to read the xt_qtaguid resource tracking misc dev.
 # This is needed by any process that uses socket tagging.
     chmod 0644 /dev/xt_qtaguid
+
+# void swichable pair
+    setprop ro.vold.switchablepair "/storage/sdcard0,/storage/sdcard1"
 
 # bootanimation wait one loop
     setprop sys.bootanim_wait 1

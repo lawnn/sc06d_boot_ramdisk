@@ -49,9 +49,7 @@ on init
     symlink /storage/emulated/legacy /mnt/sdcard
     symlink /storage/emulated/legacy /storage/sdcard0
     symlink /mnt/shell/emulated/0 /storage/emulated/legacy
-    symlink /storage/sdcard1 /external_sd
     symlink /storage/sdcard1 /extSdCard
-    symlink /storage/sdcard1 /mnt/external_sd
     symlink /storage/sdcard1 /mnt/extSdCard
     symlink /storage/usbdisk0 /usbdisk0
     symlink /storage/usbdisk0 /mnt/usbdisk0
@@ -60,7 +58,6 @@ on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
     exec /system/bin/sh /init.qcom.early_boot.sh ${ro.board.platform}
-    exec /system/bin/sh /init.prop.sh
     exec /system/bin/sh /init.qcom.syspart_fixup.sh ${ro.board.platform} ${ro.serialno}
 
 on boot-pause
@@ -173,13 +170,6 @@ on boot
     # Flash storage isn't a good entropy source, and only causes locking
     # overhead in the kernel. Turn it off.
     write /sys/block/mmcblk0/queue/add_random 0
-
-# FeliCa
-    mkdir /efs/FeliCaLock 0777 system 9004
-    chown 9004 9004 /efs/FeliCaLock/01
-    chmod 0666 /efs/FeliCaLock/01
-    chown 9004 9004 /efs/FeliCaLock/02
-    chmod 0666 /efs/FeliCaLock/02
 
 # import cne init file
 on post-fs
@@ -342,11 +332,11 @@ service netmgrd /system/bin/netmgrd
     class main
     disabled
 
-service sensors /system/bin/sensors.qcom
-    class late_start
-    user root
-    group root
-    disabled
+#service sensors /system/bin/sensors.qcom
+#    class late_start
+#    user root
+#    group root
+#    disabled
 
 on property:ro.use_data_netmgrd=false
 #netmgr not supported on specific target
@@ -442,17 +432,17 @@ service gpsone_daemon /system/bin/gpsone_daemon
     group system qcom_oncrpc inet
     disabled
 
-service quipc_igsn /system/bin/quipc_igsn
-    class late_start
-    user gps
-    group inet gps
-    disabled
+#service quipc_igsn /system/bin/quipc_igsn
+#    class late_start
+#    user gps
+#    group inet gps
+#    disabled
 
-service quipc_main /system/bin/quipc_main
-    class late_start
-    user gps
-    group net_admin wifi inet gps
-    disabled
+#service quipc_main /system/bin/quipc_main
+#    class late_start
+#    user gps
+#    group net_admin wifi inet gps
+#    disabled
 
 service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
     class late_start
@@ -501,11 +491,11 @@ service wifisdio-on /system/bin/sh /system/etc/init.qcom.sdio.sh
 on property:sys.boot_completed=1
     start qcom-post-boot
 
-service atfwd /system/bin/ATFWD-daemon
-    class late_start
-    user system
-    group system radio
-    onrestart /system/bin/log -t RIL-ATFWD -p w "ATFWD daemon restarted"
+#service atfwd /system/bin/ATFWD-daemon
+#    class late_start
+#    user system
+#    group system radio
+#    onrestart /system/bin/log -t RIL-ATFWD -p w "ATFWD daemon restarted"
 
 service hdmid /system/bin/hdmid
     class late_start
@@ -553,15 +543,15 @@ on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
     write /proc/sys/net/ipv4/tcp_adv_win_scale  1
 
-service time_daemon /system/bin/time_daemon
-    class late_start
-    user root
-    group root
-    oneshot
-    disabled
+#service time_daemon /system/bin/time_daemon
+#    class late_start
+#    user root
+#    group root
+#    oneshot
+#    disabled
 
-on property:persist.timed.enable=true
-    start time_daemon
+#on property:persist.timed.enable=true
+#    start time_daemon
 
 service ril-daemon /system/bin/rild
     class main
@@ -596,17 +586,3 @@ service macloader /system/bin/macloader
     class main
     oneshot
 
-#@ext4sd_service
-
-# Felica
-service mfsc /system/bin/mfsc
-    class main
-    user root
-    group system
-    oneshot
-    
-service mfdp /system/bin/mfdp
-    class main
-    user root
-    group system
-    oneshot
