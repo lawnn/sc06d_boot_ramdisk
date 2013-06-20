@@ -94,8 +94,8 @@ on boot
     chmod 2770 /dev/socket/qmux_radio
     mkdir /dev/socket/qmux_audio 0770 media audio
     chmod 2770 /dev/socket/qmux_audio
-#    mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
-#    chmod 2770 /dev/socket/qmux_bluetooth
+    mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
+    chmod 2770 /dev/socket/qmux_bluetooth
     mkdir /dev/socket/qmux_gps 0770 gps gps
     chmod 2770 /dev/socket/qmux_gps
 
@@ -190,6 +190,8 @@ on post-fs-data
     #mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
     mkdir /data/misc/dhcp 0775 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
+    write /dev/wcnss_wlan 1
+    write /sys/module/wcnss_ssr_8960/parameters/enable_riva_ssr 1
 
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio

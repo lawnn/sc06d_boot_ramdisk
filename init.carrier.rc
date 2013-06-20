@@ -13,6 +13,9 @@ on boot
     chown 9004 9004 /efs/FeliCaLock/02
     chmod 0666 /efs/FeliCaLock/02
 
+on fs
+    exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
+
 on post-fs-data
     exec /system/bin/sh /sbin/felica_init.sh
 
