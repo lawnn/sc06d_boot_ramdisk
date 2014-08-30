@@ -10,7 +10,7 @@
 /dev/binder               0666   root       root
 /dev/rtc0                 0660   system     system
 /dev/tspdrv               0666   root       root
-/dev/ttyHSL0		  0660   radio      system
+/dev/ttyHSL0              0660   radio      system
 # logger should be world writable (for logging) but not readable
 /dev/log/*                0662   root       log
 
@@ -93,8 +93,8 @@
 /dev/snd/mixer            0660   system     audio
 /dev/msm_pcm_lp_dec       0660   system     audio
 /dev/smd4                 0660   system     system
-/dev/smd3                 0660   bluetooth      bluetooth
-/dev/smd2                 0660   bluetooth      bluetooth
+/dev/smd3                 0660   bluetooth      net_bt_stack
+/dev/smd2                 0660   bluetooth      net_bt_stack
 /dev/smd0                 0640   radio      radio
 /dev/smd7                 0660   bluetooth  bluetooth
 /dev/smdcntl0             0640   radio      radio
@@ -145,7 +145,7 @@
 /dev/block/mmcblk0p17     0660   system     system
 /dev/block/mmcblk0p18     0660   system     system
 /dev/usb_accessory        0660   root       usb
-/dev/video*	          0660   system     camera 
+/dev/video*               0660   system     camera
 /dev/tun                  0660   system     vpn
 #regular apps need to be able to open ion
 /dev/ion                  0664   system     system
@@ -207,18 +207,8 @@
 /dev/dun               0660   system     system
 
 # for PL2303 driver
-/dev/ttyUSB0           0666   system   	 system
+/dev/ttyUSB0           0666   system     system
 
 # wlan
 /dev/wcnss_wlan           0660   system     system
 /dev/wcnss_ctrl           0660   system     system
-
-# Felica
-/dev/felica		0666	root		root
-/dev/felica_pon		0666	root		root
-/dev/felica_cen		0666	root		root
-/dev/felica_rfs		0444	root		root
-/dev/felica_rws		0666	root		root
-/dev/felica_ant		0666	root		root
-/dev/felica_int_poll	0400	root		root
-/dev/felica_uid		0222	root		root
