@@ -3211,7 +3211,7 @@ SectionDevice
         'LINEOUT2 Volume':1:90%
         'LINEOUT3 Volume':1:90%
         'LINEOUT4 Volume':1:90%
-        'RX5 Digital Volume':1:72.7%
+        'RX5 Digital Volume':1:70%
     EndSequence
 
     DisableSequence
